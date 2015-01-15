@@ -1,0 +1,29 @@
+{
+  "name": "gulp-tutorial",
+  "version": "1.0.0",
+  "description": "phpの為のgulp入門",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name" : "Yuuki Takezawa",
+    "email" : "yuuki.takezawa@comnect.jp.net",
+    "url" : "http://blog.comnect.jp.net/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ytake/gulp-tutorial/issues"
+  },
+  "homepage": "https://github.com/ytake/gulp-tutorial",
+  "devDependencies": {
+    "bower": "1.*",
+    "gulp": "3.*",
+    "gulp-shell": "0.*",
+    "gulp-react": "*",
+    "gulp-notify": "*",
+    "gulp-phpunit": "*",
+    "laravel-elixir": "*",
+    "underscore": "1.*"
+  }
+}

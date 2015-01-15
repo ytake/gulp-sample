@@ -1,0 +1,20 @@
+{
+  "name": "gulp-tutorial",
+  "version": "0.0.0",
+  "authors": [
+    "yuuki takezawa <yuuki.takezawa@comnect.jp.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "foundation": "*",
+    "react": "*"
+  }
+}
