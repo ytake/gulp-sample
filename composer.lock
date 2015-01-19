@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9207bd4c451fcb7ab81b69a42a760fd0",
+    "hash": "544890744158e28d1667bc8af2b96df3",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -183,16 +183,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.3.1",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "cf483685798a72c93bf4206e3dd6358ea07d64e7"
+                "reference": "2346085d2b027b233ae1d5de59b07440b9f288c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/cf483685798a72c93bf4206e3dd6358ea07d64e7",
-                "reference": "cf483685798a72c93bf4206e3dd6358ea07d64e7",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/2346085d2b027b233ae1d5de59b07440b9f288c8",
+                "reference": "2346085d2b027b233ae1d5de59b07440b9f288c8",
                 "shasum": ""
             },
             "require": {
@@ -203,6 +203,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": ">=3.7",
+                "predis/predis": "~0.8",
                 "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
@@ -248,7 +249,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-09-17 14:24:04"
+            "time": "2015-01-15 20:38:55"
         },
         {
             "name": "doctrine/collections",
@@ -754,16 +755,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a8ffc6fcfcbae268656c8acf1298e378ac1ee5f1"
+                "reference": "ac05ef6f95bf8361549604b6031c115f92f39528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a8ffc6fcfcbae268656c8acf1298e378ac1ee5f1",
-                "reference": "a8ffc6fcfcbae268656c8acf1298e378ac1ee5f1",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ac05ef6f95bf8361549604b6031c115f92f39528",
+                "reference": "ac05ef6f95bf8361549604b6031c115f92f39528",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +796,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-11-04 22:12:46"
+            "time": "2015-01-18 11:29:59"
         },
         {
             "name": "symfony/console",
@@ -947,6 +948,59 @@
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com",
             "time": "2015-01-03 08:01:13"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v2.6.3",
+            "target-dir": "Symfony/Component/HttpFoundation",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/HttpFoundation.git",
+                "reference": "3f4ba2c658be910fe6cec46ed34ee900bd18bb01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/3f4ba2c658be910fe6cec46ed34ee900bd18bb01",
+                "reference": "3f4ba2c658be910fe6cec46ed34ee900bd18bb01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "classmap": [
+                    "Symfony/Component/HttpFoundation/Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-01-05 17:41:06"
         }
     ],
     "packages-dev": [
@@ -1580,16 +1634,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "f8d5d08c56de5cfd592b3340424a81733259a876"
+                "reference": "db32c18eba00b121c145575fcbcd4d4d24e6db74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/f8d5d08c56de5cfd592b3340424a81733259a876",
-                "reference": "f8d5d08c56de5cfd592b3340424a81733259a876",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/db32c18eba00b121c145575fcbcd4d4d24e6db74",
+                "reference": "db32c18eba00b121c145575fcbcd4d4d24e6db74",
                 "shasum": ""
             },
             "require": {
@@ -1602,7 +1656,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1625,20 +1679,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2014-08-31 06:12:13"
+            "time": "2015-01-17 09:51:32"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.4.1",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a"
+                "reference": "e90575c2bb86290d57a262862dab1da125431576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6a5e49a86ce5e33b8d0657abe145057fc513543a",
-                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e90575c2bb86290d57a262862dab1da125431576",
+                "reference": "e90575c2bb86290d57a262862dab1da125431576",
                 "shasum": ""
             },
             "require": {
@@ -1696,7 +1750,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-28 07:57:05"
+            "time": "2015-01-17 11:24:41"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2384,6 +2438,59 @@
             "time": "2015-01-03 08:01:59"
         },
         {
+            "name": "symfony/var-dumper",
+            "version": "v2.6.3",
+            "target-dir": "Symfony/Component/VarDumper",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "36af986811340fd4c1bc39cf848da388bbdd8473"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/36af986811340fd4c1bc39cf848da388bbdd8473",
+                "reference": "36af986811340fd4c1bc39cf848da388bbdd8473",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-0": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "http://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2015-01-01 13:28:01"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v2.6.3",
             "target-dir": "Symfony/Component/Yaml",
@@ -2438,8 +2545,7 @@
     },
     "prefer-stable": false,
     "platform": {
-        "php": ">=5.4",
-        "ext-tokenizer": "*"
+        "php": ">=5.4"
     },
     "platform-dev": []
 }

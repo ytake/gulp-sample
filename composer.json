@@ -11,12 +11,12 @@
     ],
     "require": {
         "php": ">=5.4",
-        "ext-tokenizer": "*",
         "iono/container": "0.*",
         "nikic/fast-route": "*",
-        "symfony/console": "2.*"
+        "symfony/http-foundation": "*"
     },
     "require-dev": {
+        "symfony/var-dumper": "*",
         "phpunit/phpunit": "4.*",
         "mockery/mockery": "0.*",
         "phpspec/phpspec": "~2.1",
