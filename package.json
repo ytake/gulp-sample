@@ -17,12 +17,19 @@
   },
   "homepage": "https://github.com/ytake/gulp-tutorial",
   "devDependencies": {
+    "del": "*",
     "bower": "1.*",
+    "lodash": "*",
     "gulp": "3.*",
     "gulp-shell": "0.*",
     "gulp-react": "*",
     "gulp-notify": "*",
     "gulp-phpunit": "*",
+    "gulp-filter": "*",
+    "gulp-plumber": "*",
+    "gulp-css-url-adjuster": "*",
+    "browser-sync": "*",
+    "main-bower-files": "*",
     "laravel-elixir": "*",
     "underscore": "1.*"
   }

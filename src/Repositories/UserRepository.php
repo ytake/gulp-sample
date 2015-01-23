@@ -14,8 +14,8 @@ class UserRepository implements UserRepositoryContract
 
     /** @var array  */
     protected $user = [
-        'user_id' => 1,
-        'name' => 'gulp.test'
+        'user_id' => 2,
+        'name' => 'gulp.test1'
     ];
 
     /**

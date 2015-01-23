@@ -16,5 +16,22 @@
     "jquery": "*",
     "bootstrap": "*",
     "react": "*"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main" : [
+        "**/*.min.css",
+        "**/*.min.js",
+        "**/glyphicons-*"
+      ]
+    },
+    "jquery": {
+      "main" : "**/*.min.js"
+    },
+    "react": {
+      "main" : [
+        "**/*.min.js"
+      ]
+    }
   }
 }

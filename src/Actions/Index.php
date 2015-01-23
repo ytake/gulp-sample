@@ -24,8 +24,15 @@ class Index extends Action
      */
     protected function action()
     {
-        $this->body = $this->user->getUser(1)['name'];
-
+        $html = "
+        <!doctype html>
+<html>
+    <head>
+        <title>full doc</title>
+    </head>
+    <body>" . $this->user->getUser(1)['name']. "</body>
+</html>";
+        $this->body = $html;
     }
 
 }
