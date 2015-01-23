@@ -1,6 +1,0 @@
-{
-    "php_server": {
-        "port": 8881,
-        "path": "public/"
-    }
-}

@@ -11,9 +11,10 @@
     ],
     "require": {
         "php": ">=5.4",
-        "iono/container": "0.*",
+        "iono/container": "~0",
         "nikic/fast-route": "*",
-        "symfony/http-foundation": "*"
+        "symfony/http-foundation": "*",
+        "twig/twig": "~1"
     },
     "require-dev": {
         "symfony/var-dumper": "*",
@@ -28,10 +29,8 @@
         }
     },
     "autoload-dev": {
-        "psr-4": {
-            "_Test\\": [
-                "tests/"
-            ]
-        }
+        "files": [
+            "tests/TestSupport.php"
+        ]
     }
 }

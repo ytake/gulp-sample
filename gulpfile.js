@@ -2,7 +2,8 @@
 var gulp = require('gulp'),
     shell = require('gulp-shell'),
     elixir = require('laravel-elixir'),
-    notify = require('gulp-notify');
+    notify = require('gulp-notify'),
+    phpunit = require('gulp-phpunit');
 
 var configure = {
     "php_server": {
@@ -26,8 +27,14 @@ gulp.task('boot', function () {
 });
 
 
-gulp.task("test", function () {
-    gulp.src('tests/*.php')
+gulp.task("phpunit", function () {
+
+    var options = {
+        debug: false,
+        notify: true
+    };
+
+    return gulp.src('tests/*.php')
         .pipe(phpunit())
         .on('error', notify.onError({
             title: "Gulp PHP Unit",
@@ -39,13 +46,6 @@ gulp.task("test", function () {
         }));
 });
 
-gulp.task('watch', function () {
-    gulp.watch([
-            'src/**/*.php',
-            'public/**/*.php'
-        ]
-        , ['boot']
-    );
+gulp.task('default', ['boot'], function () {
+    gulp.watch(['src/**/*.php'], ['phpunit']);
 });
-
-gulp.task('default', ['boot', 'watch']);

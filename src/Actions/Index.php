@@ -8,6 +8,7 @@ use Iono\Container\Annotation\Annotations\Autowired;
  * Class Index
  * @package Acme\Actions
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @property \Acme\Repositories\UserRepositoryContract $user
  */
 class Index extends Action
 {
@@ -23,7 +24,6 @@ class Index extends Action
      */
     protected function action()
     {
-        // dump($this->parameters);
         $this->body = $this->user->getUser(1)['name'];
     }
 

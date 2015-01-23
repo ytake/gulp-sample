@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Class Action
  * @package Acme\Foundation
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
+ * @property array $parameters
  */
 abstract class Action implements \ArrayAccess
 {
@@ -18,7 +19,9 @@ abstract class Action implements \ArrayAccess
     /** @var   */
     protected $body = "<h2>sample</h2>";
 
-
+    /**
+     * @return mixed
+     */
     abstract protected function action();
 
     /**
