@@ -1,5 +1,7 @@
 'use strict';
+
 var gulp = require('gulp'),
+    bower = require('bower'),
     shell = require('gulp-shell'),
     elixir = require('laravel-elixir'),
     notify = require('gulp-notify'),
@@ -16,7 +18,6 @@ gulp.task('boot', function () {
 
     var phpPort = configure.php_server.port,
         phpPath = configure.php_server.path;
-
     return gulp.src('')
         .pipe(notify({
             title: "booting php server",
@@ -26,6 +27,12 @@ gulp.task('boot', function () {
         + ' > /dev/null 2>&1 &', {ignoreErrors: true}));
 });
 
+gulp.task('bower', function () {
+    return bower.commands.install([], {save: true}, {})
+        .on('end', function (data) {
+            console.log(data);
+        });
+});
 
 gulp.task("phpunit", function () {
 
@@ -33,9 +40,8 @@ gulp.task("phpunit", function () {
         debug: false,
         notify: true
     };
-
-    return gulp.src('tests/*.php')
-        .pipe(phpunit())
+    return gulp.src('tests/*Test.php')
+        .pipe(phpunit('', options))
         .on('error', notify.onError({
             title: "Gulp PHP Unit",
             message: "Error(s) occurred during testing..."
@@ -46,6 +52,6 @@ gulp.task("phpunit", function () {
         }));
 });
 
-gulp.task('default', ['boot'], function () {
+gulp.task('default', ['bower', 'boot'], function () {
     gulp.watch(['src/**/*.php'], ['phpunit']);
 });

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
  * @property array $parameters
  */
-abstract class Action implements \ArrayAccess
+abstract class Action
 {
 
     /** @var */
@@ -42,45 +42,6 @@ abstract class Action implements \ArrayAccess
     {
         $this->parameters = $params->all();
         return $this;
-    }
-
-    /**
-     * @param mixed $offset
-     * @param mixed $value
-     */
-    public function offsetSet($offset, $value)
-    {
-        if (is_null($offset)) {
-            $this->parameters[] = $value;
-        } else {
-            $this->parameters[$offset] = $value;
-        }
-    }
-
-    /**
-     * @param mixed $offset
-     * @return bool
-     */
-    public function offsetExists($offset)
-    {
-        return isset($this->parameters[$offset]);
-    }
-
-    /**
-     * @param mixed $offset
-     */
-    public function offsetUnset($offset)
-    {
-        unset($this->parameters[$offset]);
-    }
-
-    /**
-     * @param mixed $offset
-     * @return null
-     */
-    public function offsetGet($offset)
-    {
-        return isset($this->parameters[$offset]) ? $this->parameters[$offset] : null;
     }
 
 }

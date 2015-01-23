@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9f9773beb0347989dacce4a2cc5b2f46",
+    "hash": "db3aad5e307b3288e4fd80f1ac5adf1e",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -37,7 +37,7 @@
             "authors": [
                 {
                     "name": "Ondřej Nešpor",
-                    "homepage": "https://github.com/Andrewsville"
+                    "homepage": "https://github.com/andrewsville"
                 },
                 {
                     "name": "Jaroslav Hanslík",
@@ -2601,7 +2601,6 @@
         "satooshi/php-coveralls": 20
     },
     "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": {
         "php": ">=5.4"
     },

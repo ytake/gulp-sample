@@ -25,6 +25,7 @@ class Index extends Action
     protected function action()
     {
         $this->body = $this->user->getUser(1)['name'];
+
     }
 
 }
