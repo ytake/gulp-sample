@@ -90,6 +90,11 @@ gulp.task('browserSync', function () {
     });
 });
 
+gulp.task('browserReload', function (){
+    browserSync.reload();
+});
+
+
 /**
  * built in serverを実行します
  */
@@ -131,9 +136,9 @@ gulp.task("phpunit", function () {
         .pipe(notify(testNotification('pass', 'phpunit')));
 });
 
-gulp.task('default', ['browserSync', 'initialize'], function () {
+gulp.task('default', ['browserSync', 'initialize', 'boot'], function () {
     gulp.watch(['src/**/*.php'], ['phpunit']);
-    gulp.watch(['src/**/*.php'], reload);
+    gulp.watch(['src/**/*.php'], ['browserReload']);
 });
 
 /**

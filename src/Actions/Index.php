@@ -2,6 +2,7 @@
 namespace Acme\Actions;
 
 use Acme\Foundation\Action;
+use Iono\Container\Annotation\Annotations\Value;
 use Iono\Container\Annotation\Annotations\Autowired;
 
 /**
@@ -20,10 +21,17 @@ class Index extends Action
     protected $user;
 
     /**
+     * @var
+     * @Value("render")
+     */
+    protected $render;
+
+    /**
      *
      */
     protected function action()
     {
+
         $html = "
         <!doctype html>
 <html>

@@ -5,18 +5,19 @@ $request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 
 $dispatcher = FastRoute\simpleDispatcher(
     function (FastRoute\RouteCollector $r) {
-        require_once "../config/routes.php";
+        require_once __DIR__ . "/../config/routes.php";
     }
 );
 
 $config = new \Iono\Container\Configure();
 $compiler = new \Iono\Container\Compiler(
     new \Iono\Container\Annotation\AnnotationManager(),
-    $config->set(require dirname(__FILE__) . '/../config/config.php')
+    $config->set(require __DIR__ . '/../config/config.php')
 );
 $compiler->setForceCompile(false);
 $compilerContainer = new \Iono\Container\Container($compiler);
 $container = $compilerContainer->register();
+$container->instance('path', __DIR__);
 
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
 switch ($routeInfo[0]) {
