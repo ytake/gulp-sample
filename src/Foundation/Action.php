@@ -1,6 +1,7 @@
 <?php
 namespace Acme\Foundation;
 
+use Iono\Container\Container;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,6 +20,9 @@ abstract class Action
     /** @var   */
     protected $body = "<h2>sample</h2>";
 
+    /** @var Container  */
+    protected $container;
+
     /**
      * @return mixed
      */
@@ -29,9 +33,12 @@ abstract class Action
      */
     public function response()
     {
-        $this->action();
-        return (new Response($this->body))
-            ->sendHeaders()->sendContent();
+
+        return (new Response(
+            (new Renderer(
+                $this->container->make('base_path')))->renderer($this->action())
+            )
+        )->send();
     }
 
     /**
@@ -44,4 +51,13 @@ abstract class Action
         return $this;
     }
 
+    /**
+     * @param Container $container
+     * @return $this
+     */
+    public function setContainer(Container $container)
+    {
+        $this->container = $container;
+        return $this;
+    }
 }

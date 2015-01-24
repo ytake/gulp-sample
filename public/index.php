@@ -17,7 +17,7 @@ $compiler = new \Iono\Container\Compiler(
 $compiler->setForceCompile(false);
 $compilerContainer = new \Iono\Container\Container($compiler);
 $container = $compilerContainer->register();
-$container->instance('path', __DIR__);
+$container->instance('base_path', __DIR__ . '/..');
 
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
 switch ($routeInfo[0]) {
@@ -34,6 +34,8 @@ switch ($routeInfo[0]) {
         $vars = $routeInfo[2];
 
         return $container->make($handler)
-            ->setParams($request->query)->response();
+            ->setContainer($container)
+            ->setParams($request->query)
+            ->response();
         break;
 }

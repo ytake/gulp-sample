@@ -2,14 +2,13 @@
 namespace Acme\Actions;
 
 use Acme\Foundation\Action;
-use Iono\Container\Annotation\Annotations\Value;
+use Acme\WebViews\Index as IndexView;
 use Iono\Container\Annotation\Annotations\Autowired;
 
 /**
  * Class Index
  * @package Acme\Actions
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
- * @property \Acme\Repositories\UserRepositoryContract $user
  */
 class Index extends Action
 {
@@ -20,27 +19,23 @@ class Index extends Action
      */
     protected $user;
 
-    /**
-     * @var
-     * @Value("render")
-     */
-    protected $render;
+    /** @var IndexView  */
+    protected $view;
 
     /**
-     *
+     * @param IndexView $view
+     */
+    public function __construct(IndexView $view)
+    {
+        $this->view = $view;
+    }
+
+    /**
+     * @return $this|IndexView
      */
     protected function action()
     {
-
-        $html = "
-        <!doctype html>
-<html>
-    <head>
-        <title>full doc</title>
-    </head>
-    <body>" . $this->user->getUser(1)['name']. "</body>
-</html>";
-        $this->body = $html;
+        return $this->view->render(['name' => 'gulp']);
     }
 
 }
