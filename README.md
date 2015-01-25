@@ -33,5 +33,8 @@ $ composer install
 ```bash
 $ gulp boot
 ```
-■default
+■default  
 bower install, ファイル配置, コンパイル, phpunitなどが含まれています
+```bash
+$ gulp
+```
