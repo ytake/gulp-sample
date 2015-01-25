@@ -7,12 +7,19 @@ class ActionIndexTest extends TestSupport
 
     public function setUp()
     {
-        $container = $this->getContainer();
-        $this->action = $container->make("Acme\Actions\Index");
+        $this->action = new \Acme\Actions\Index(
+            new \Acme\WebViews\Index,
+            new \Acme\Repositories\UserRepository
+        );
     }
 
     public function testAction()
     {
-        
+        $this->assertInstanceOf("Acme\Actions\Index", $this->action);
+    }
+
+    public function testViewInstance()
+    {
+        $this->assertInstanceOf("Acme\WebViews\Index", $this->action->action());
     }
 }

@@ -1,6 +1,9 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
+$container = new \Illuminate\Container\Container();
+require_once __DIR__ . "/../config/dependencies.php";
+
 $request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 
 $dispatcher = FastRoute\simpleDispatcher(
@@ -9,15 +12,6 @@ $dispatcher = FastRoute\simpleDispatcher(
     }
 );
 
-$config = new \Iono\Container\Configure();
-$compiler = new \Iono\Container\Compiler(
-    new \Iono\Container\Annotation\AnnotationManager(),
-    $config->set(require __DIR__ . '/../config/config.php')
-);
-$compiler->setForceCompile(false);
-$compilerContainer = new \Iono\Container\Container($compiler);
-$container = $compilerContainer->register();
-$container->instance('base_path', __DIR__ . '/..');
 
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
 switch ($routeInfo[0]) {

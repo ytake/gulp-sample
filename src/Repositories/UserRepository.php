@@ -1,13 +1,10 @@
 <?php
 namespace Acme\Repositories;
 
-use Iono\Container\Annotation\Annotations\Component;
-
 /**
  * Class UserRepository
  * @package Acme\Repositories
  * @author yuuki.takezawa<yuuki.takezawa@comnect.jp.net>
- * @Component
  */
 class UserRepository implements UserRepositoryContract
 {

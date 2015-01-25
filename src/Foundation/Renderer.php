@@ -21,13 +21,12 @@ class Renderer
     public function __construct($path)
     {
         $fileLoader = new \Twig_Loader_Filesystem($path . '/resources/views');
-        $this->twig = new \Twig_Environment($fileLoader, [
-            'cache' => $path . '/tmp/cache',
-        ]);
+        $this->twig = new \Twig_Environment($fileLoader);
     }
 
     /**
-     * @return mixed
+     * @param WebViewContract $view
+     * @return string
      */
     public function renderer(WebViewContract $view)
     {

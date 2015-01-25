@@ -1,7 +1,11 @@
+/**
+ *
+ * @type {*|React.ReactComponentFactory<P>}
+ */
 var Content = React.createClass({
     getInitialState: function () {
         return {
-            value: 'gulp.Sample!'
+            value: 'gulp.Sample from React.js'
         };
     },
     render: function () {
@@ -12,6 +16,5 @@ var Content = React.createClass({
 });
 React.renderComponent(
     <Content />,
-    document.getElementById('title')
-
+    document.getElementById('reactContent')
 );

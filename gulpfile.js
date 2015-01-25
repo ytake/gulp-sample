@@ -4,14 +4,13 @@ var gulp = require('gulp'),
     react = require('gulp-react'),
     notify = require('gulp-notify'),
     phpunit = require('gulp-phpunit'),
+    minifyCSS = require('gulp-minify-css'),
     urlAdjuster = require('gulp-css-url-adjuster'),
     gulpFilter = require('gulp-filter'),
     mainBowerFiles = require('main-bower-files'),
     browserSync = require('browser-sync'),
     _       = require('lodash'),
     plumber = require('gulp-plumber');
-
-var reload = browserSync.reload;
 
 var configure = {
     "php_server": {
@@ -22,7 +21,7 @@ var configure = {
 
 /**
  * bowerインストール
- *
+ * $ gulp bower
  */
 gulp.task('bower', function () {
     return bower.commands.install([], {save: true}, {})
@@ -33,6 +32,8 @@ gulp.task('bower', function () {
 
 /**
  * bower install後に各assetsファイルを指定のディレクトリへ設置します
+ * $ gulp publish
+ * bowerタスクは自動で実行されます
  */
 gulp.task('publish', ['bower'], function () {
     var jsFilter = gulpFilter('**/*.js');
@@ -56,6 +57,11 @@ gulp.task('publish', ['bower'], function () {
         .pipe(gulp.dest('public/assets/js'))
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
+        .pipe(urlAdjuster({
+            replace: ['../fonts/', ''],
+            prepend: '/assets/fonts/'
+        }))
+        .pipe(minifyCSS())
         .pipe(gulp.dest('public/assets/css'))
         .pipe(cssFilter.restore())
         .pipe(fontFilter)
@@ -65,21 +71,9 @@ gulp.task('publish', ['bower'], function () {
         .pipe(gulp.dest('public/images'));
 });
 
-gulp.task("initialize", ['publish'], function () {
-    return gulp.src(
-        [
-            'public/assets/css/font-awesome.min.css',
-            'public/assets/css/bootstrap.min.css'
-        ])
-        .pipe(urlAdjuster({
-            replace: ['../fonts/', ''],
-            prepend: '/assets/fonts/'
-        }))
-        .pipe(gulp.dest('public/assets/css'));
-});
-
 /**
  * browser reload
+ * $ gulp browserSync
  */
 gulp.task('browserSync', function () {
     browserSync({
@@ -90,13 +84,17 @@ gulp.task('browserSync', function () {
     });
 });
 
+/**
+ * browser reload
+ * $ gulp browserReload
+ */
 gulp.task('browserReload', function (){
     browserSync.reload();
 });
 
-
 /**
  * built in serverを実行します
+ * $ gulp boot
  */
 gulp.task('boot', function () {
     var phpPort = configure.php_server.port,
@@ -107,21 +105,27 @@ gulp.task('boot', function () {
             title: "booting php server",
             message: '127.0.0.1:' + phpPort
         }))
-        .pipe(shell('php -S 127.0.0.1:' + phpPort + ' -t ' + phpPath
-        + ' > /dev/null 2>&1 &', {ignoreErrors: true}));
+        .pipe(
+            shell('php -S 127.0.0.1:' + phpPort + ' -t ' + phpPath,
+                {ignoreErrors: true}
+            )
+        );
 });
 
 /**
  * React.js コンパイル
+ * $ gulp react
  */
 gulp.task('react', function () {
     return gulp.src('resources/react/**/*.jsx')
         .pipe(react())
+        .pipe(minifyCSS())
         .pipe(gulp.dest('public/js'));
 });
 
 /**
  * phpunit実行
+ * $ gulp phpunit
  */
 gulp.task("phpunit", function () {
 
@@ -136,9 +140,13 @@ gulp.task("phpunit", function () {
         .pipe(notify(testNotification('pass', 'phpunit')));
 });
 
-gulp.task('default', ['browserSync', 'initialize', 'boot'], function () {
-    gulp.watch(['src/**/*.php'], ['phpunit']);
-    gulp.watch(['src/**/*.php'], ['browserReload']);
+/**
+ * watchを使って自動で実行されます
+ */
+gulp.task('default', ['browserSync', 'publish'], function () {
+    gulp.watch(['tests/*Test.php'], ['phpunit']);
+    gulp.watch(['src/**/*.php', 'resources/views/**/*.twig'], ['browserReload']);
+    gulp.watch(['resources/react/**/*.jsx'], ['browserReload', 'react']);
 });
 
 /**

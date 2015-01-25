@@ -3,7 +3,7 @@ namespace Acme\Actions;
 
 use Acme\Foundation\Action;
 use Acme\WebViews\Index as IndexView;
-use Iono\Container\Annotation\Annotations\Autowired;
+use Acme\Repositories\UserRepositoryContract;
 
 /**
  * Class Index
@@ -13,10 +13,7 @@ use Iono\Container\Annotation\Annotations\Autowired;
 class Index extends Action
 {
 
-    /**
-     * @var \Acme\Repositories\UserRepositoryContract
-     * @Autowired("Acme\Repositories\UserRepositoryContract")
-     */
+    /** @var UserRepositoryContract  */
     protected $user;
 
     /** @var IndexView  */
@@ -24,18 +21,20 @@ class Index extends Action
 
     /**
      * @param IndexView $view
+     * @param UserRepositoryContract $user
      */
-    public function __construct(IndexView $view)
+    public function __construct(IndexView $view, UserRepositoryContract $user)
     {
         $this->view = $view;
+        $this->user = $user;
     }
 
     /**
      * @return $this|IndexView
      */
-    protected function action()
+    public function action()
     {
-        return $this->view->render(['name' => 'gulp']);
+        return $this->view->render($this->user->getUser(2));
     }
 
 }

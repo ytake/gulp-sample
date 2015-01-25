@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "iono/container": "~0",
+        "illuminate/container": "~4",
         "nikic/fast-route": "*",
         "symfony/http-foundation": "*",
         "twig/twig": "~1"

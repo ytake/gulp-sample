@@ -13,3 +13,8 @@ $ npm install -g bower
 $ npm install
 ```
 
+## composer
+```bash
+$ composer install
+```
+

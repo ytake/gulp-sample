@@ -1,9 +1,9 @@
 <?php
 namespace Acme\Foundation;
 
-use Iono\Container\Container;
-use Symfony\Component\HttpFoundation\ParameterBag;
+use Illuminate\Container\Container;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * Class Action
@@ -26,7 +26,7 @@ abstract class Action
     /**
      * @return mixed
      */
-    abstract protected function action();
+    abstract public function action();
 
     /**
      * @return Response

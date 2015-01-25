@@ -8,4 +8,15 @@ namespace Acme\Foundation;
 interface WebViewContract
 {
 
+    /**
+     * @param array $array
+     * @return mixed
+     */
+    public function render(array $array = []);
+
+    /**
+     * @return array
+     */
+    public function getContext();
+
 }
