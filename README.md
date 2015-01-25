@@ -1,4 +1,4 @@
-# gulp-tutorial
+# gulp-sample
 phpの為のgulp入門
 
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/ytake/gulp-tutorial.svg?style=flat)](https://scrutinizer-ci.com/g/ytake/gulp-tutorial/?branch=master)
