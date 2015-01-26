@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     shell = require('gulp-shell'),
     react = require('gulp-react'),
     notify = require('gulp-notify'),
+    uglify = require('gulp-uglify'),
     phpunit = require('gulp-phpunit'),
     minifyCSS = require('gulp-minify-css'),
     urlAdjuster = require('gulp-css-url-adjuster'),
@@ -119,7 +120,7 @@ gulp.task('boot', function () {
 gulp.task('react', function () {
     return gulp.src('resources/react/**/*.jsx')
         .pipe(react())
-        .pipe(minifyCSS())
+        .pipe(uglify())
         .pipe(gulp.dest('public/js'));
 });
 
@@ -147,6 +148,7 @@ gulp.task('default', ['browserSync', 'publish'], function () {
     gulp.watch(['tests/*Test.php'], ['phpunit']);
     gulp.watch(['src/**/*.php', 'resources/views/**/*.twig'], ['browserReload']);
     gulp.watch(['resources/react/**/*.jsx'], ['browserReload', 'react']);
+    gulp.watch(['public/css/**/*.css'], ['browserReload']);
 });
 
 /**

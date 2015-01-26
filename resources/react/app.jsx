@@ -1,11 +1,8 @@
-/**
- *
- * @type {*|React.ReactComponentFactory<P>}
- */
+
 var Content = React.createClass({
     getInitialState: function () {
         return {
-            value: 'gulp.Sample from React.js'
+            value: 'gulp.Sample'
         };
     },
     render: function () {
